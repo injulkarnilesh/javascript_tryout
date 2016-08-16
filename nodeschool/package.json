@@ -1,0 +1,16 @@
+{
+  "name": "nodeschool",
+  "version": "1.0.0",
+  "description": "NodeSchool Assignments",
+  "main": "program.js",
+  "dependencies": {
+    "bl": "^1.1.2",
+    "async": "^1.5.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
