@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title> <%= title%></title>
+		<link rel="stylesheet" type="text/css" href="/bootstrap/dist/css/bootstrap.css">
+	</head>
+	<body>
+		<div class="container">
+			<h1>Application My</h1>
+			<h3><%= new Date()%></h3>
+			
+			<ul>
+			<% for(var i = 0; i < tasks.length; i++) { %> 
+					<li> <h5> <%= tasks[i].desc%> </h5> </li>
+			<% } %>
+			</ul>
+
+			<form method="post" action="/add">
+				<input type="text" name="newtask">
+				<button type="submit" class="btn btn-info">ADD</button>
+			</form>
+		</div>
+		
+		<script type="text/javascript" src="/jquery/dist/jquery.min.js"></script>
+		<script type="text/javascript" src="/bootstrap/dist/js/bootstrap.min.js"></script>
+	</body>
+</html>

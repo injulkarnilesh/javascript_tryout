@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>User</title>
+	<link rel="stylesheet" type="text/css" href="/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+	<div class="container">
+		<h2>User</h2>
+		<div style="font-size: 20px;">
+			<form method="POST" action="/users/edit/<%=user.id%>/state/<%=user.state%>">
+
+				<input type="hidden" name="id" value=<%=user.id%> >
+				<lable> First Name </lable> : 
+					<span class="show_user"> <%= user.first_name%> </span>
+					<span> <input type="text" value=<%= user.first_name%> 
+								  name="first_name" class="edit_user"> </span>
+				<br>
+				<lable> Last Name </lable> : 
+					<span class="show_user"> <%= user.last_name%> </span>
+					<span> <input type="text" value=<%= user.last_name%> 
+									name="last_name" class="edit_user"> </span>
+				<br>
+				<lable> Age </lable> : 
+					<span class="show_user"> <%= user.age%> </span>
+					<span> <input type="text" value=<%= user.age%> 
+								name="age" class="edit_user"> </span>
+				<br>
+				<lable> City </lable> : 
+					<span class="show_user"> <%= user.city%> </span>
+					<span> <input type="text" value=<%= user.city%> 
+									name="city" class="edit_user"> </span>
+				<br>
+				<lable> State </lable> : 
+					<span> <%= user.state%> </span>
+					<span> <input type="hidden" value=<%= user.state%> 
+									name="state"> </span>
+				<br>
+				<br>
+				<button type="submit" class="btn btn-primary edit_user" id="save_edit">
+					SAVE 
+				</button>
+				<button type="button" class="btn btn-info edit_user" id="cancel_edit"> 
+					CANCEL 
+				</button>
+			</form>
+		</div>
+		<br>
+		<button class="btn btn-primary show_user" id="start_edit_user">
+			EDIT
+		</button>
+		<button class="btn btn-danger show_user" id="delete_user"
+				data-userid=<%=user.id%> data-userstate=<%=user.state%> >
+			DELETE
+		</button>
+		<button class="btn btn-info show_user" id="goto_users">
+			BACK
+		</button>
+	</div>
+	<script type="text/javascript" src="/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="/bootstrap/dist/js/bootstrap.min.js"></script>		
+	<script type="text/javascript">
+		$('docuement').ready(function() {
+
+			$('.edit_user').hide();
+
+			$('#start_edit_user').click(function() {
+				$('.edit_user').show();				
+				$('.show_user').hide();
+			});
+
+			$('#cancel_edit').click(function() {
+				$('.edit_user').hide();				
+				$('.show_user').show();
+			});
+
+			function goToUsers() {
+				window.location.href = '/users';
+			}
+
+			$('#delete_user').click(function() {
+				var userId = $(this).data('userid');
+				var userState = $(this).data('userstate');
+
+				$.ajax({
+					url : '/users/' + userId + '/state/' + userState,
+					type : 'DELETE'
+				}).done(function(resp) {
+			    	console.log("success", resp);
+			    	goToUsers();
+			  	}).fail(function(err) {
+			    	alert("Error ", err);
+			  	});
+			});
+
+			$('#goto_users').click(function() {
+				window.location.href = '/users';
+			});
+
+		});
+	</script>
+</body>
+</html>
