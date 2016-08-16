@@ -1,0 +1,51 @@
+/* Base Application Styles */
+body {
+  background: #F9F9F9;
+}
+
+.index img {
+  margin: 40px auto;
+  border-radius: 4px;
+  background: #fff;
+  display: block;
+}
+
+.index .notice {
+  margin: 20px auto;
+  color: #fff;
+  padding: 15px 0;
+  text-align: center;
+  border: 1px solid #000;
+  border-width: 1px 0;
+  background: #666;
+}
+
+.todoitem {
+  margin: 10px;
+  padding : 2px;
+}
+
+.todoitem-id {
+  color: white;
+  padding: 5px;
+  border-radius: 15px;
+  background-color: #707070;
+}
+
+.todoitem-status {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.todoitem-completed {
+  color: #bab5b5;
+  text-decoration: line-through;
+}
+
+.editButton {
+  margin-left: 12px;
+}
+
+.menu-link {
+  margin: 5px 15px;
+}

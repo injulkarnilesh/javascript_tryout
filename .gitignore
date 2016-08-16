@@ -1,3 +1,9 @@
+.DS_Store
+
 /express_js/bower_components
 /express_js/node_modules
+
 /nodeschool/node_modules
+
+/react_js/dist
+/react_js/node_modules
