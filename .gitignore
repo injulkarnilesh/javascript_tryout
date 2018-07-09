@@ -7,3 +7,9 @@
 
 /react_js/dist
 /react_js/node_modules
+
+node_modules
+/typescript/**/*.js
+/typescript/**/*.js.map
+*.iml
+npm-debug.log
