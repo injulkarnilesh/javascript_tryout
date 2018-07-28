@@ -33,6 +33,7 @@ observableHot.subscribe((message) => {
 
 setTimeout(() => {
     observableHot.subscribe((message) => {
+        //won't receive First message
         console.log('HOT >> Later subsriber', message);
     });
 }, 1000);
