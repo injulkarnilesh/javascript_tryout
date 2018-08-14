@@ -1,5 +1,5 @@
 # Trying rxjs
-# Steps
+## Steps
 $npm install
 
 $npm install -g ts-node
